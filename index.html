@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Premium Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expense Tracker</h1>
+            <div class="total-balance">
+                <span class="label">Total Spent</span>
+                <div class="amount" id="total-amount">₹0.00</div>
+            </div>
+        </header>
+
+        <section class="add-expense">
+            <form id="expense-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Expense Name</label>
+                        <input type="text" id="name" placeholder="e.g. Groceries">
+                        <span class="error-msg" id="name-error">Please enter an expense name</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="0.00" step="0.01">
+                        <span class="error-msg" id="amount-error">Please enter a valid amount</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <div class="custom-select" id="category-wrapper" tabindex="0">
+                            <div class="select-selected" id="category-display">Select Category</div>
+                            <div class="select-items select-hide">
+                                <div data-value="Food">Food</div>
+                                <div data-value="Transport">Transport</div>
+                                <div data-value="Shopping">Shopping</div>
+                                <div data-value="Entertainment">Entertainment</div>
+                                <div data-value="Other">Other</div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="category" value="">
+                        <span class="error-msg" id="category-error">Please select a category</span>
+                    </div>
+                    <button type="submit" id="add-btn">Add Expense</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="filters">
+            <div class="filter-wrapper">
+                <label>Filter by Category</label>
+                <div class="select-container">
+                    <div class="custom-select" id="filter-wrapper" tabindex="0">
+                        <div class="select-selected" id="filter-display">All Categories</div>
+                        <div class="select-items select-hide">
+                            <div data-value="All" class="same-as-selected">All Categories</div>
+                            <div data-value="Food">Food</div>
+                            <div data-value="Transport">Transport</div>
+                            <div data-value="Shopping">Shopping</div>
+                            <div data-value="Entertainment">Entertainment</div>
+                            <div data-value="Other">Other</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="expense-list-container">
+            <div id="empty-state" class="empty-state">
+                <p>No expenses yet. Start by adding one!</p>
+            </div>
+            <ul id="expense-list" class="expense-list"></ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
